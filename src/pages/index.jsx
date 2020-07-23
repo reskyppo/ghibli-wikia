@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import '../styles/tailwind.css'
 import Films from '../components/Films';
 import Button from '../components/Button';
+import People from '../components/People';
 
 class Ghibli extends Component {
   state = {
@@ -78,7 +79,8 @@ class Ghibli extends Component {
                     <div className="container text-4xl text-center mt-10">
                       Please select your favorite category first!
                     </div>,
-                  'films': <Films />
+                  'films': <Films />,
+                  'people' : <People />
                 }[this.state.page]
               }
             </div>
