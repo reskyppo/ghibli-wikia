@@ -44,7 +44,8 @@ class Ghibli extends Component {
         <div className="bg-akaroa-500 min-h-screen min-w-full">
           <section className="text-gray-700 body-font">
             <div className="container px-5 pt-24 mx-auto">
-              <Header />
+            <People></People>
+              {/* <Header />
               <div className="container flex flex-row text-center justify-around my-6 ">
                 <Button name="Films" onClick={this.handleFilms} />
                 <Button name="People" onClick={this.handlePeople} />
@@ -62,7 +63,7 @@ class Ghibli extends Component {
                   films: <Films />,
                   people: <People />,
                 }[this.state.page]
-              }
+              } */}
             </div>
           </section>
         </div>
