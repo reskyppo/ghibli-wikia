@@ -14,10 +14,6 @@ export default function PeopleFilms({ film }) {
         console.log(err);
       }
     );
-  }, []);
-  return (
-    <p>
-      {films.title} ({films.release_date})
-    </p>
-  );
+  }, [film]);
+  return <p>{films.title ?? "The Cat Returns"}</p>;
 }

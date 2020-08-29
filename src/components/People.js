@@ -93,7 +93,7 @@ const People = () => {
               alt="avatar"
             />
             {/* Send props from film array datas */}
-            <div className="w-full bg-dove-gray-800 px-6 text-white text-2xl font-semibold">
+            <div className="w-full bg-dove-gray-800 px-6 text-white text-2xl font-semibold ">
               <PeopleFilms film={data.films} />
             </div>
             <div className="py-4 px-6">
