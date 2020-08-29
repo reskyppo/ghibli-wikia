@@ -1,13 +1,13 @@
-import React from 'react';
-import '../src/styles/tailwind.css'
-import Ghibli from './pages';
+import React from "react";
+import "../src/styles/tailwind.css";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div className="App">
-      <Ghibli/>
+      <Home />
     </div>
   );
-}
+};
 
 export default App;
