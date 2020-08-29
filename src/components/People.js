@@ -7,6 +7,9 @@ import AOS from "aos";
 // import style
 import "aos/dist/aos.css";
 
+// import component
+import PeopleFilms from "./PeopleFilms";
+
 // initialization packaege AOS
 AOS.init();
 
@@ -89,11 +92,12 @@ const People = () => {
               src={images[idx]}
               alt="avatar"
             />
-
+            {/* Send props from film array datas */}
+            <div className="w-full bg-dove-gray-800 px-6 text-white text-2xl font-semibold">
+              <PeopleFilms film={data.films} />
+            </div>
             <div className="py-4 px-6">
-              <h1 className="text-2xl font-semibold text-gray-800">
-                {data.name}
-              </h1>
+              <h1 className="text-3xl font-bold text-gray-800">{data.name}</h1>
 
               <div className="flex items-center mt-4 text-gray-700">
                 <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
