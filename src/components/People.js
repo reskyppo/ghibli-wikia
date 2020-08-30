@@ -68,6 +68,7 @@ const People = () => {
   useEffect(() => {
     Axios.get("https://ghibliapi.herokuapp.com/people").then(
       (res) => {
+        console.log(res);
         setDatas(res.data);
       },
       (err) => {
