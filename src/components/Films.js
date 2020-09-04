@@ -33,6 +33,27 @@ const Films = () => {
     "https://images-na.ssl-images-amazon.com/images/I/91Sruo1eOpL._SL1500_.jpg",
   ];
 
+  const imagesPeople = {
+    "Hayao Miyazaki":
+      "https://www.gstatic.com/tv/thumb/persons/156932/156932_v9_ba.jpg",
+    "Isao Takahata":
+      "https://m.media-amazon.com/images/M/MV5BNDM5OTc2NjI1MV5BMl5BanBnXkFtZTgwOTI3MjA4MTE@._V1_SY1000_CR0,0,668,1000_AL_.jpg",
+    "Toru Hara":
+      "https://assets.mubicdn.net/images/cast_member/1388/image-w240.jpg",
+    "Toshio Suzuki":
+      "https://upload.wikimedia.org/wikipedia/commons/9/97/Toshio_Suzuki%2C_Howl%27s_Moving_Castle_premiere.jpg",
+    "Yoshifumi Kondō":
+      "https://cdn.myanimelist.net/images/voiceactors/2/39739.jpg",
+    "Hiroyuki Morita":
+      "https://cdn.myanimelist.net/images/voiceactors/1/35839.jpg",
+    "Gorō Miyazaki":
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Gor%C5%8D_Miyazaki.jpg/220px-Gor%C5%8D_Miyazaki.jpg",
+    "Hiromasa Yonebayashi":
+      "https://www.gstatic.com/tv/thumb/persons/610013/610013_v9_ba.jpg",
+    "Yoshiaki Nishimura":
+      "https://alchetron.com/cdn/yoshiaki-nishimura-9480661d-29c2-45cd-a77f-9d467c208d2-resize-750.jpg",
+  };
+
   useEffect(() => {
     Axios.get("https://ghibliapi.herokuapp.com/films").then(
       (res) => {
@@ -73,9 +94,9 @@ const Films = () => {
                 <div className="flex">
                   <div className="flex items-center">
                     <img
-                      className="min-w-max-content h-10 rounded-full mr-4"
-                      src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg"
-                      alt="Avatar of Jonathan Reinink"
+                      className="w-10 h-10 rounded-full mr-4"
+                      src={imagesPeople[data?.director ?? data?.producer]}
+                      alt={`Avatar of ${data?.director}`}
                     />
                     <div className="text-sm">
                       <p className="text-black leading-none">
@@ -87,8 +108,8 @@ const Films = () => {
                   <div className="flex items-center ml-10 ">
                     <img
                       className="w-10 h-10 rounded-full mr-4"
-                      src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg"
-                      alt="Avatar of Jonathan Reinink"
+                      src={imagesPeople[data?.producer ?? data?.director]}
+                      alt={`Avatar of ${data?.producer}`}
                     />
                     <div className="text-sm">
                       <p className="text-black leading-none">
