@@ -3,18 +3,21 @@ import React, { useState, useEffect } from "react";
 //import package
 import Axios from "axios";
 import AOS from "aos";
+import Loader from "react-loader-spinner";
 
 // import style
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "aos/dist/aos.css";
 
 // import component
-import PeopleFilms from "./PeopleFilms";
+import PeopleFilms from "../components/PeopleFilms";
 
 // initialization packaege AOS
 AOS.init();
 
 const People = () => {
   // Hooks Data
+  const [loading, setLoading] = useState(() => false);
   const [datas, setDatas] = useState(() => []);
 
   // Array Image Picture
@@ -66,6 +69,9 @@ const People = () => {
 
   // Get Data Via API with Axios
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(true);
+    }, 2000);
     Axios.get("https://ghibliapi.herokuapp.com/people").then(
       (res) => {
         console.log(res);
@@ -75,68 +81,93 @@ const People = () => {
         console.log(err);
       }
     );
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      <div className="container mx-auto justify-evenly items-stretch flex flex-wrap ">
-        {datas.map((data, idx) => (
-          <div
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1000"
-            className="max-w-sm mx-4 flex flex-col bg-white shadow-lg rounded-lg overflow-hidden my-8"
-            key={idx}
-          >
-            <img
-              className="w-96 h-56 object-cover object-center"
-              src={images[idx]}
-              alt="avatar"
-            />
-            {/* Send props from film array datas */}
-            <div className="w-full bg-dove-gray-800 px-6 text-white text-2xl font-semibold ">
-              <PeopleFilms film={data.films} />
-            </div>
-            <div className="py-4 px-6">
-              <h1 className="text-3xl font-bold text-gray-800">{data.name}</h1>
+      <div className="bg-akaroa-500 min-h-screen min-w-full">
+        <section className="text-gray-700 body-font">
+          <div className="container px-5 pt-12 mx-auto">
+            {loading ? (
+              <div className="container mx-auto justify-evenly items-stretch flex flex-wrap ">
+                {datas.map((data, idx) => (
+                  <div
+                    data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1000"
+                    className="max-w-sm mx-4 flex flex-col bg-white shadow-lg rounded-lg overflow-hidden my-8"
+                    key={idx}
+                  >
+                    <img
+                      className="w-96 h-56 object-cover object-center"
+                      src={images[idx]}
+                      alt="avatar"
+                    />
+                    {/* Send props from film array datas */}
+                    <div className="w-full bg-dove-gray-800 px-6 text-white text-2xl font-semibold ">
+                      <PeopleFilms film={data.films} />
+                    </div>
+                    <div className="py-4 px-6">
+                      <h1 className="text-3xl font-bold text-gray-800">
+                        {data.name}
+                      </h1>
 
-              <div className="flex items-center mt-4 text-gray-700">
-                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                  <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                      <div className="flex items-center mt-4 text-gray-700">
+                        <svg
+                          className="h-6 w-6 fill-current"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
 
-                <h1 className="px-2 text-sm">Gender : {data.gender}</h1>
+                        <h1 className="px-2 text-sm">Gender : {data.gender}</h1>
+                      </div>
+                      <div className="flex items-center mt-4 text-gray-700">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6 fill-current"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z" />
+                        </svg>
+                        <h1 className="px-2 text-sm">
+                          Eye color : {data.eye_color}
+                        </h1>
+                      </div>
+                      <div className="flex items-center mt-4 text-gray-700">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="h-6 w-6 fill-current"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                        <h1 className="px-2 text-sm">Age : {data.age}</h1>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="flex items-center mt-4 text-gray-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z" />
-                </svg>
-                <h1 className="px-2 text-sm">Eye color : {data.eye_color}</h1>
+            ) : (
+              <div className="container px-5 mx-auto flex justify-center items-center ">
+                <Loader
+                  type="ThreeDots"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+                />
               </div>
-              <div className="flex items-center mt-4 text-gray-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="h-6 w-6 fill-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <h1 className="px-2 text-sm">Age : {data.age}</h1>
-              </div>
-            </div>
+            )}
           </div>
-        ))}
+        </section>
       </div>
     </>
   );
