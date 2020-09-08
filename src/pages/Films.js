@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import Hero from "../components/Hero";
+
+import Header from "../components/Header";
 //import package
 import Axios from "axios";
 import AOS from "aos";
@@ -76,7 +79,9 @@ const Films = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="bg-akaroa-500 min-h-screen min-w-full">
+    <div className="bg-woodsmoke-100 min-h-screen min-w-full">
+      <Header />
+      <Hero />
       <section className="text-gray-700 body-font">
         <div className="container px-5 pt-12 mx-auto">
           <section className="text-gray-700  overflow-hidden">
