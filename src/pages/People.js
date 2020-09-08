@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import Header from "../components/Header";
 //import package
 import Axios from "axios";
 import AOS from "aos";
@@ -87,8 +88,9 @@ const People = () => {
   return (
     <>
       <div className="bg-woodsmoke-100 min-h-screen min-w-full">
+        <Header />
         <section className="text-gray-700 body-font">
-          <div className="container px-5 pt-12 mx-auto">
+          <div className="container px-5 pt-6 mx-auto">
             {loading ? (
               <div className="container mx-auto justify-evenly items-stretch flex flex-wrap ">
                 {datas.map((data, idx) => (

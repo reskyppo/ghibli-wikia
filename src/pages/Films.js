@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import Hero from "../components/Hero";
-
 import Header from "../components/Header";
 //import package
 import Axios from "axios";
@@ -69,7 +67,6 @@ const Films = () => {
     }, 2000);
     Axios.get("https://ghibliapi.herokuapp.com/films").then(
       (res) => {
-        console.log(res.data);
         setDatas(res.data);
       },
       (err) => {
@@ -81,7 +78,6 @@ const Films = () => {
   return (
     <div className="bg-woodsmoke-100 min-h-screen min-w-full">
       <Header />
-      <Hero />
       <section className="text-gray-700 body-font">
         <div className="container px-5 pt-12 mx-auto">
           <section className="text-gray-700  overflow-hidden">

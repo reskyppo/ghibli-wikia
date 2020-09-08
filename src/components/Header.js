@@ -1,35 +1,87 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
+  const [toogle, setToogle] = useState(() => false);
+
+  const handlerToogle = () => {
+    setToogle(!toogle);
+  };
   return (
-    <div className=" bg-deep-cove-600 flex  px-8 pt-2 shadow-md justify-center items-center">
-      <section className="flex w-1/2 items-center">
-        <h1 className="text-2xl font-bold text-white py-3 mx-5">WikiGhibli</h1>
-      </section>
-      <section className="">
-        <div className=" text-white flex justify-center items-center">
+    <nav className=" bg-deep-cove-600 flex  px-8 pt-2 shadow-md lg:justify-center items-center py-2">
+      <div class="relative select-none bg-grey lg:flex lg:items-stretch w-full">
+        <div class="flex flex-no-shrink items-stretch h-12">
           <Link
-            className="no-underline text-teal-dark border-b-2 border-transparent uppercase tracking-wide font-extrabold text-sm py-3 mr-8"
-            to=""
+            to="/"
+            class="flex-no-grow flex-no-shrink relative py-2 px-4 text-lg font-bold leading-normal text-white no-underline flex items-center hover:bg-grey-dark"
           >
-            Home
+            WikiGhibli
           </Link>
-          <Link
-            className="no-underline text-grey-dark border-b-2 border-transparent uppercase tracking-wide font-bold text-sm py-3 mr-8"
-            to="/films"
+
+          <button
+            onClick={handlerToogle}
+            class="block lg:hidden cursor-pointer ml-auto relative w-12 h-12 p-4"
           >
-            Films
-          </Link>
-          <Link
-            className="no-underline text-grey-dark border-b-2 border-transparent uppercase tracking-wide font-bold text-sm py-3 mr-8"
-            to="/people"
-          >
-            People
-          </Link>
+            <svg
+              class="fill-current text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
         </div>
-      </section>
-    </div>
+
+        {toogle ? (
+          <div class="lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
+            <div class="lg:flex lg:items-stretch lg:justify-end ml-auto">
+              <Link
+                to="/"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                Home
+              </Link>
+              <Link
+                to="films"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                Films
+              </Link>
+              <Link
+                to="people"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                People
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div class="hidden lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
+            <div class="lg:flex lg:items-stretch lg:justify-end ml-auto">
+              <Link
+                to="/"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                Home
+              </Link>
+              <Link
+                to="films"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                Films
+              </Link>
+              <Link
+                to="people"
+                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+              >
+                People
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
