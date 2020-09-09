@@ -13,8 +13,6 @@
   z-index: 3;
 }
 
-
-
 .header-clipping::before {
   @apply .w-full .bg-indigo-900 .h-120 .inset-0 .absolute;
   content: "";

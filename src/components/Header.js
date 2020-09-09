@@ -10,21 +10,21 @@ const Header = () => {
   };
   return (
     <nav className=" bg-deep-cove-600 flex  px-8 pt-2 shadow-md lg:justify-center items-center py-2">
-      <div class="relative select-none bg-grey lg:flex lg:items-stretch w-full">
-        <div class="flex flex-no-shrink items-stretch h-12">
+      <div className="relative select-none bg-grey lg:flex lg:items-stretch w-full">
+        <div className="flex flex-no-shrink items-stretch h-12">
           <Link
             to="/"
-            class="flex-no-grow flex-no-shrink relative py-2 px-4 text-lg font-bold leading-normal text-white no-underline flex items-center hover:bg-grey-dark"
+            className="flex-no-grow flex-no-shrink relative py-2 px-4 text-lg font-bold leading-normal text-white no-underline flex items-center hover:bg-grey-dark"
           >
             WikiGhibli
           </Link>
 
           <button
             onClick={handlerToogle}
-            class="block lg:hidden cursor-pointer ml-auto relative w-12 h-12 p-4"
+            className="block lg:hidden cursor-pointer ml-auto relative w-12 h-12 p-4"
           >
             <svg
-              class="fill-current text-white"
+              className="fill-current text-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
@@ -34,46 +34,46 @@ const Header = () => {
         </div>
 
         {toogle ? (
-          <div class="lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
-            <div class="lg:flex lg:items-stretch lg:justify-end ml-auto">
+          <div className="lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow ">
+            <div className="lg:flex lg:items-stretch lg:justify-end ml-auto">
               <Link
                 to="/"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
               >
                 Home
               </Link>
               <Link
                 to="films"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
               >
                 Films
               </Link>
               <Link
                 to="people"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
               >
                 People
               </Link>
             </div>
           </div>
         ) : (
-          <div class="hidden lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
-            <div class="lg:flex lg:items-stretch lg:justify-end ml-auto">
+          <div className="hidden lg:flex lg:items-stretch lg:flex-no-shrink lg:flex-grow">
+            <div className="lg:flex lg:items-stretch lg:justify-end ml-auto lg:mr-48">
               <Link
                 to="/"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative text-lg font-semibold py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900 lg:mr-8"
               >
                 Home
               </Link>
               <Link
                 to="films"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative text-lg py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900 lg:mr-8"
               >
                 Films
               </Link>
               <Link
                 to="people"
-                class="flex-no-grow flex-no-shrink relative py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900"
+                className="flex-no-grow flex-no-shrink relative text-lg py-2 px-4 leading-normal text-white no-underline flex items-center hover:bg-indigo-900 lg:mr-8"
               >
                 People
               </Link>
