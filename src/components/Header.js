@@ -14,7 +14,7 @@ const Header = () => {
         <div className="flex flex-no-shrink items-stretch h-12">
           <Link
             to="/"
-            className="flex-no-grow flex-no-shrink relative py-2 px-4 text-lg font-bold leading-normal text-white no-underline flex items-center hover:bg-grey-dark"
+            className="flex-no-grow flex-no-shrink relative py-2 px-6 text-lg font-bold leading-normal text-white no-underline flex items-center hover:bg-grey-dark"
           >
             WikiGhibli
           </Link>
