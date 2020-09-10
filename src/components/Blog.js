@@ -1,27 +1,8 @@
 import React from "react";
-import Axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
+
 const Blog = ({ category, link }) => {
-  const [people, setPeople] = useState(() => []);
-
-  console.log(people[0]);
-  console.log(people[1]);
-  console.log(people[2]);
-
-  useEffect(() => {
-    Axios.get("https://ghibliapi.herokuapp.com/people").then(
-      (res) => {
-        console.log(res);
-        setPeople(res.data);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, []);
   return category === "Films" ? (
     <section className="text-gray-700 body-font overflow-hidden">
       <div className="container px-5 py-8 mx-auto">
@@ -31,7 +12,9 @@ const Blog = ({ category, link }) => {
               <span className="tracking-widest font-medium title-font text-gray-900">
                 {category}
               </span>
-              <span className="mt-1 text-gray-600 font-semibold text-sm">1986</span>
+              <span className="mt-1 text-gray-600 font-semibold text-sm">
+                1986
+              </span>
             </div>
             <div className="md:flex-grow ">
               <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -54,10 +37,10 @@ const Blog = ({ category, link }) => {
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5l7 7-7 7"></path>
@@ -70,7 +53,9 @@ const Blog = ({ category, link }) => {
               <span className="tracking-widest font-medium title-font text-gray-900">
                 {category}
               </span>
-              <span className="mt-1 text-gray-600 font-semibold text-sm">1988</span>
+              <span className="mt-1 text-gray-600 font-semibold text-sm">
+                1988
+              </span>
             </div>
             <div className="md:flex-grow ">
               <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -94,10 +79,10 @@ const Blog = ({ category, link }) => {
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5l7 7-7 7"></path>
@@ -117,7 +102,9 @@ const Blog = ({ category, link }) => {
               <span className="tracking-widest font-medium title-font text-gray-900">
                 {category}
               </span>
-              <span className="mt-1 text-gray-600 font-semibold text-sm">13 year old</span>
+              <span className="mt-1 text-gray-600 font-semibold text-sm">
+                13 year old
+              </span>
             </div>
             <div className="md:flex-grow ">
               <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -138,10 +125,10 @@ const Blog = ({ category, link }) => {
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5l7 7-7 7"></path>
@@ -154,7 +141,9 @@ const Blog = ({ category, link }) => {
               <span className="tracking-widest font-medium title-font text-gray-900">
                 {category}
               </span>
-              <span className="mt-1 text-gray-600 font-semibold text-sm">13 year old</span>
+              <span className="mt-1 text-gray-600 font-semibold text-sm">
+                13 year old
+              </span>
             </div>
             <div className="md:flex-grow ">
               <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -175,10 +164,10 @@ const Blog = ({ category, link }) => {
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5l7 7-7 7"></path>
