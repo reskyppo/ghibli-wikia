@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 //import package
 import Axios from "axios";
 import AOS from "aos";
@@ -76,87 +78,94 @@ const Films = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="bg-woodsmoke-100 min-h-screen min-w-full">
-      <Header />
-      <section className="text-gray-700 body-font">
-        <div className="container px-5 pt-12 mx-auto">
-          <section className="text-gray-700  overflow-hidden">
-            <div className="container px-5 mx-auto">
-              {loading ? (
-                datas?.map((data, idx) => (
-                  <div
-                    className="flex flex-wrap -mx-16 items-stretch mb-8"
-                    data-aos="fade-left"
-                    data-aos-duration="1000"
-                    key={data?.id}
-                  >
-                    <div className=" w-full lg:flex">
-                      <div
-                        className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-auto"
-                        style={{ backgroundImage: `url(${imagesPoster[idx]})` }}
-                        title={data?.title}
-                      />
-                      <div className=" ml-8 lg:-ml-8 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 pr-10  flex flex-col justify-between leading-normal">
-                        <div className="mb-6">
-                          <div className="text-black font-bold text-xl mb-2">
-                            {data.title} ({data?.release_date})
-                          </div>
-                          <p className="text-grey-darker text-base pr-4 ">
-                            {data?.description}
-                          </p>
-                        </div>
-
-                        <div className="flex">
-                          <div className="flex items-center">
-                            <LazyLoadImage
-                              className="w-10 h-10 rounded-full mr-4"
-                              src={
-                                imagesPeople[data?.director ?? data?.producer]
-                              }
-                              alt={`Avatar of ${data?.director}`}
-                            />
-                            <div className="text-sm">
-                              <p className="text-black leading-none">
-                                {data?.director}
-                              </p>
-                              <p className="text-grey-dark">Director</p>
+    <>
+      <div className="bg-woodsmoke-100 min-h-screen min-w-full">
+        <Header />
+        <section className="text-gray-700 body-font">
+          <div className="container px-5 pt-12 mx-auto">
+            <section className="text-gray-700  overflow-hidden">
+              <div className="container px-5 mx-auto">
+                {loading ? (
+                  datas?.map((data, idx) => (
+                    <div
+                      className="flex flex-wrap -mx-16 items-stretch mb-8"
+                      data-aos="fade-left"
+                      data-aos-duration="1000"
+                      key={data?.id}
+                    >
+                      <div className=" w-full lg:flex">
+                        <div
+                          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-auto"
+                          style={{
+                            backgroundImage: `url(${imagesPoster[idx]})`,
+                          }}
+                          title={data?.title}
+                        />
+                        <div className=" ml-8 lg:-ml-8 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 pr-10  flex flex-col justify-between leading-normal">
+                          <div className="mb-6">
+                            <div className="text-black font-bold text-xl mb-2">
+                              {data.title} ({data?.release_date})
                             </div>
+                            <p className="text-grey-darker text-base pr-4 ">
+                              {data?.description}
+                            </p>
                           </div>
-                          <div className="flex items-center ml-10 ">
-                            <LazyLoadImage
-                              className="w-10 h-10 rounded-full mr-4"
-                              src={
-                                imagesPeople[data?.producer ?? data?.director]
-                              }
-                              alt={`Avatar of ${data?.producer}`}
-                            />
-                            <div className="text-sm">
-                              <p className="text-black leading-none">
-                                {data?.producer}
-                              </p>
-                              <p className="text-grey-dark">Producer</p>
+
+                          <div className="flex">
+                            <div className="flex items-center">
+                              <LazyLoadImage
+                                className="w-10 h-10 rounded-full mr-4"
+                                src={
+                                  imagesPeople[data?.director ?? data?.producer]
+                                }
+                                alt={`Avatar of ${data?.director}`}
+                              />
+                              <div className="text-sm">
+                                <p className="text-black leading-none">
+                                  {data?.director}
+                                </p>
+                                <p className="text-grey-dark">Director</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center ml-10 ">
+                              <LazyLoadImage
+                                className="w-10 h-10 rounded-full mr-4"
+                                src={
+                                  imagesPeople[data?.producer ?? data?.director]
+                                }
+                                alt={`Avatar of ${data?.producer}`}
+                              />
+                              <div className="text-sm">
+                                <p className="text-black leading-none">
+                                  {data?.producer}
+                                </p>
+                                <p className="text-grey-dark">Producer</p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="container px-5 mx-auto flex justify-center items-center ">
+                    <Loader
+                      type="ThreeDots"
+                      color="#00BFFF"
+                      height={80}
+                      width={80}
+                    />
                   </div>
-                ))
-              ) : (
-                <div className="container px-5 mx-auto flex justify-center items-center ">
-                  <Loader
-                    type="ThreeDots"
-                    color="#00BFFF"
-                    height={80}
-                    width={80}
-                  />
-                </div>
-              )}
-            </div>
-          </section>
-        </div>
+                )}
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+      <section className="bg-indigo-900 -mt-8">
+        <Footer />
       </section>
-    </div>
+    </>
   );
 };
 

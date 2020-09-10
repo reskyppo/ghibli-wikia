@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import Footer from "../components/Footer";
 import Header from "../components/Header";
+
 //import package
 import Axios from "axios";
 import AOS from "aos";
@@ -75,7 +77,6 @@ const People = () => {
     }, 2000);
     Axios.get("https://ghibliapi.herokuapp.com/people").then(
       (res) => {
-        console.log(res);
         setDatas(res.data);
       },
       (err) => {
@@ -171,6 +172,9 @@ const People = () => {
           </div>
         </section>
       </div>
+      <section className="bg-indigo-900 -mt-8">
+        <Footer />
+      </section>
     </>
   );
 };
